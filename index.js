@@ -121,7 +121,7 @@ app.get("/api/allusers", async (req, res) => {
         { first_name: { $regex: input, $options: "i" } },
         { last_name: { $regex: input, $options: "i" } },
       ],
-    });
+    }).sort({ id: 1 });
     const fil = await User.find({
       $or: [
         { first_name: { $regex: input, $options: "i" } },
